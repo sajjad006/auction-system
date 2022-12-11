@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+
+    <script src="{{ url_for('static', filename= 'js/index.js') }}"></script>
+
 </head>
+
 <body>
-    <h1>hello world</h1>
-    <h2>this is our computer project</h2>
+    {% if auctions %}
+        {% for auction in auctions %}
+            <div>
+                <p>{{auction.title}}</p>
+                <button data-room={{auction.id}} class="join-button">Join</button>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1>There are no upcoming auctions</h1>
+    {% endif %}
+
+    <button id="btn">Click </button>
 </body>
+
 </html>
