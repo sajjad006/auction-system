@@ -35,7 +35,6 @@ def connect(sid, environ):
     with thread_lock:
         if thread is None:
             thread = sio.start_background_task(background_thread)
-    # emit('my_response', {'data': 'Connected', 'count': 0})
 
     print("connected: ", sid)
 
@@ -101,22 +100,18 @@ def background_thread():
         # player sold 
         # record sale in db and emit purse to all clients
         if team is not None:
-            # print("here")
             sell_price = int(current_player['BidPrice'])-1000000
             cursor.execute("SELECT * FROM teams WHERE team_name = %s", (team,))
             team1 = cursor.fetchone()
             cursor.execute(f"INSERT INTO team_players (team, player, cost, auction) VALUES ({team1['id']}, {player['playerid']}, {sell_price}, {int(auction_id)})")
-            # print("here1")
             cursor.execute(f"UPDATE teams SET purse = {int(team1['purse'] - sell_price)}, points = {int(int(team1['points']) + int(player['Rating']))} WHERE id = {team1['id']}")
-            # print("here2")
             mydb.commit()
+
         cursor.execute(f"SELECT * FROM teams WHERE auction_id='{auction_id}' ORDER BY points DESC;")
-        # print("here3")
         teams = cursor.fetchall()
 
         cursor.execute(f"SELECT * FROM auction.team_players INNER JOIN teams ON team_players.team=teams.id INNER JOIN players ON team_players.player=players.playerid WHERE auction_id='{auction_id}'")
         team_players = cursor.fetchall()
-        # print("here4")
 
         team_players = [{'team': x['team_name'], 'player': x['Name'], 'cost': str(x['cost'])} for x in team_players]
 
@@ -129,7 +124,6 @@ def background_thread():
     # update auction status in database
     cursor.execute(f"UPDATE auctions SET status='completed' WHERE id={auction_id}")
     mydb.commit()
-    # print("here5")
 
     sio.emit("end", {'data': 'match has ended', 'auction_id': auction_id})
 
