@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Registration For Auction</title>
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    -->
+
+  <script src="../static/js/index.js"></script>
+  <link rel="stylesheet" href="../static/css/registration.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div>
+      <img src="../static/images/hammer.png" alt="" width="100" height="100" />
+    </div>
+
+    <!-- show list of auctions -->
+    <div id="auctions">
+      <h1>Upcoming Auctions</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Auction Name</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Join</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for auction in auctions %}
+          <tr>
+            <td>{{ auction.title }}</td>
+            <td>{{ auction.start_time }}</td>
+            <td>{{ auction.end_time }}</td>
+            <td><button class="join-btn" data-auctionid="{{auction.id}}" data-name="{{auction.title}}">JOIN</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <form action="/register" method="post" id="register-form">
+      <h1>Register</h1>
+      <h3 id="auction-name"></h3>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required />
+      <br />
+      <label for="team-name">Team name:</label>
+      <input type="text" id="Team-name" name="team_name" required />
+      <br />
+      <br />
+      <a href="">
+
+        <button class="register-btn" type="submit">REGISTER</button></a>
+      <input type="hidden" name="auction-id" value="" id="aucid">
+    </form>
+  </div>
+</body>
+
+</html>

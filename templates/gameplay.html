@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bidding Game</title>
+
+  <link rel="stylesheet" href="../static/css/gameplay.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+    integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+    crossorigin="anonymous"></script>
+  <script src="../static/js/gameplay.js"></script>
+</head>
+
+<body>
+  <center>
+    <div style="color: white">
+      <!--<h3>{{session.username}}</h3>-->
+      <h2>{{session.team_name}}</h2>
+      <input type="hidden" id="team" value="{{session.team_name}}">
+      <input type="hidden" id="self_purse" value="800000000">
+      <input type="hidden" id="auction_id" value={{auction.id}}>
+      <!--<input type="hidden" id="team_id" value="{{session.team_id}}">-->
+    </div>
+
+    <div class="grid-container ">
+      <div class="grid-item my-team">
+        <h4 style="font-size: 40px">My Team</h4>
+
+        <table>
+          <tbody id="team-table">
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-item" style="width: 50%; font-size: 30px;">
+
+        <p class="timer" id="auction_timer">00:00</p>
+
+        <img src="../static/images/athlete.png" id="player_image" alt="" width="150" height="150" style="border-radius: 25cm" />
+
+        <h3 id="player_name"></h3>
+
+        <div class="grid-container" id="panel">
+
+          <div class="grid-item statistics" style="height: 30vh; width: 50%">
+            <p id="player_type"></p>
+            <p>Base Price: <span id="player_base_price"></span></p>
+            <p>Next Bid Price: <span id="player_bid_price"></span> </p>
+          </div>
+
+          <div class="grid-item" style="width: 50%; height: 30vh">
+            <table style="width: 100%" class="stats-table" id="stats-table">
+              <tr>
+                <td style="text-align: left">Matches</td>
+                <td style="text-align: right" id="player_matches"></td>
+              </tr>
+              <tr>
+                <td style="text-align: left">Runs</td>
+                <td style="text-align: right"></td>
+              </tr>
+              <tr>
+                <td style="text-align: left">Highest</td>
+                <td style="text-align: right"></td>
+              </tr>
+              <tr>
+                <td style="text-align: left">Average</td>
+                <td style="text-align: right"></td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+
+
+        <div class="grid-container" style="" id="sold">
+          <div>
+            <center>
+              <h3 style="">SOLD TO </h3>
+            </center>
+          </div>
+        </div>
+
+        <button class="bid" id="bid-btn" disabled="true">BID</button>
+      </div>
+      <div class="grid-item my-team">
+        <div style="height: 50%; overflow-y: scroll">
+          <h4 style="font-size: 30px">Current Bids</h4>
+
+          <table style="overflow-y: scroll">
+            <tbody id="bid-table">
+            </tbody>
+          </table>
+        </div>
+
+        
+        <div style="height: 50%; overflow-y: scroll">
+          <h4 style="font-size: 30px">Teams</h4>
+          <table>
+            <tbody id="participants-table" style="overflow-y: scroll">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </center>
+</body>
+
+</html>

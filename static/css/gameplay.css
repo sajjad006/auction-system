@@ -1,0 +1,110 @@
+#timer {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+  color: white;
+  margin-top: 30vh;
+}
+.grid-container {
+  /* display: inline-grid; */
+  /* grid-template-columns: auto auto auto; */
+  background-color: #2196f3;
+  width: 100%;
+}
+
+.grid-item {
+  box-sizing: border-box;
+  float: left;
+  width: 33.33%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  /* font-size: 30px; */
+  text-align: center;
+  height: 90vh;
+}
+
+#sold {
+  height: 30vh;
+  color: black;
+  background-color: white;
+  display: none;
+}
+
+#sold h3 {
+  margin-top: 30px;
+  padding: 0;
+}
+.statistics p {
+  margin: 0;
+  font-size: 25px;
+  /* display: none; */
+}
+
+.stats-table td {
+  /* border: 1px solid black; */
+  /* border-collapse: collapse; */
+}
+
+.bid {
+  background-color: rgba(141, 48, 5, 0.639);
+  font-size: medium;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.bid:disabled{
+  background-color: rgba(229, 223, 220, 0.3);
+  color: black;
+  cursor: not-allowed;
+}
+
+.bid:disabled:hover {
+  transform: none;
+}
+
+.bid:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: 0.2s;
+}
+
+.my-team {
+  overflow-y: scroll;
+  width: 25%;
+}
+
+.my-team table {
+  width: 100%;
+  font-size: 20px;
+}
+
+.my-team table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+.my-team table tr:nth-child(even) {
+  background-color: #00031B;
+  color: white;
+}
+
+.my-team table tr:hover {
+  transform: scale(1.1);
+  animation: 0.4s;
+  cursor: pointer;
+}
+
+.my-team h4 {
+  margin: 10px;
+}
+
+.timer {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+  color: #cf0000;
+  /* font-family: 'Courier New', Courier, monospace; */
+}
+
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}

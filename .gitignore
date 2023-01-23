@@ -18,6 +18,8 @@ build/
 docs/_build/
 .vscode
 
+flask_session/
+
 # Coverage reports
 htmlcov/
 .coverage

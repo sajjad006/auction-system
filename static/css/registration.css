@@ -1,0 +1,76 @@
+.register-btn {
+  background-color: black;
+  font-size: medium;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.register-btn:hover {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.join-btn {
+  background-color: #4caf50;
+  font-size: medium;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.join-btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+#register-form {
+  font-size: large;
+  display: none;
+}
+
+#main {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 20vh;
+  text-align: center;
+}
+
+input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: large;
+}
+
+/* add styling to table  */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  /* color: #588c7e; */
+  font-family: monospace;
+  font-size: 25px;
+  text-align: left;
+}
+
+tr {
+  /* background-color: #f2f2f2; */
+  text-align: center;
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #adc1c6;
+}

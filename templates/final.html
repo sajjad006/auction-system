@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+    <title>Bidding Game</title>
+
+    <link rel="stylesheet" href="../static/css/final.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+
+<body>
+    <center>
+        <div style="color: white">
+            <h3>{{username}}</h3>
+            <h2>{{team_name}}</h2>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item my-team" style="">
+                <h2>Teams</h2>
+
+                <select name="" id="">
+                    {% for team in teams  %}
+                    <option value="">{{team.team_name}}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+
+                <table>
+                    <tbody>
+                        {% for player in my_players %}
+                        <tr>
+                            <td>
+                                <img src="../static/images/athlete.png" alt="" width="50" height="50" />
+                            </td>
+                            <td>{{player.Name}}</td>
+                            <td>{{player.cost}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+
+            
+            <div class="grid-item">
+                <h2>Winner</h2>
+                <img src="../static/images/trophy.png" alt="" width="250" height="300" style="aspect-ratio: 1;">
+
+                <h1>{{winner.team_name}}</h1>
+                <h3>Team Strength: {{winner.points}}</h3>
+                <h3>Purse Left: {{winner.purse}}</h3>
+            </div>
+            <div class="grid-item my-team">
+                <h4 style="font-size: 40px">Standing</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                               
+                            </td>
+                            <td>Team </td>
+                            <td>Points</td>
+                            <td>Purse</td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for team in teams %}
+                        <tr>
+                            <td>
+                                <img src="../static/images/athlete.png" alt="" width="50" height="50" />
+                            </td>
+                            <td>{{team.team_name}}</td>
+                            <td>{{team.points}}</td>
+                            <td>{{team.purse}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </center>
+
+</body>
+
+</html>
